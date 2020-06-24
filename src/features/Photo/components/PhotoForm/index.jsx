@@ -21,6 +21,7 @@ function PhotoForm(props) {
   const initialValues = {
     title: "",
     categoryId: null,
+    photo: "",
   };
   return (
     <Formik
