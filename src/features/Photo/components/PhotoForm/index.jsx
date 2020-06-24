@@ -6,6 +6,7 @@ import { FastField, Form, Formik } from "formik";
 import PropTypes from "prop-types";
 import React from "react";
 import { Button, FormGroup } from "reactstrap";
+import * as Yup from "yup";
 
 PhotoForm.propTypes = {
   onSubmit: PropTypes.func,
@@ -23,10 +24,22 @@ function PhotoForm(props) {
     categoryId: null,
     photo: "",
   };
+
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().required("This field is required."),
+    categoryId: Yup.number().required("This field is required.").nullable(),
+    photo: Yup.string().when("categoryId", {
+      is: 1,
+      then: Yup.string().required("This field is required"),
+      otherwise: Yup.string().notRequired(),
+    }),
+  });
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values) => console.log("Submit", values)}
+      validationSchema={validationSchema}
     >
       {(formikProps) => {
         const { values, errors, touched } = formikProps;
