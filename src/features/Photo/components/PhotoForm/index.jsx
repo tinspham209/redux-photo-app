@@ -23,7 +23,10 @@ function PhotoForm(props) {
     categoryId: null,
   };
   return (
-    <Formik initialValues={initialValues}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={(values) => console.log("Submit", values)}
+    >
       {(formikProps) => {
         const { values, errors, touched } = formikProps;
         console.log({ values, errors, touched });
@@ -53,7 +56,9 @@ function PhotoForm(props) {
             />
 
             <FormGroup>
-              <Button color="primary">Add to album</Button>
+              <Button type="submit" color="primary">
+                Add to album
+              </Button>
             </FormGroup>
           </Form>
         );
