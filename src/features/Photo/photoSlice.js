@@ -89,10 +89,21 @@ const photo = createSlice({
       // const newPhoto = action.payload;
       state.push(action.payload);
     },
+    removePhoto: (state, action) => {
+      const removePhotoId = action.payload;
+      return state.filter((photo) => photo.id !== removePhotoId);
+    },
+    updatePhoto: (state, action) => {
+      const newPhoto = action.payload;
+      const photoIndex = state.findIndex((photo) => photo.id === newPhoto.id);
+      if (photoIndex >= 0) {
+        state[photoIndex] = newPhoto;
+      }
+    },
   },
 });
 const { reducer, actions } = photo;
 
-export const { addPhoto } = actions;
+export const { addPhoto, removePhoto, updatePhoto } = actions;
 
 export default reducer;
