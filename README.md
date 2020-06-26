@@ -1,4 +1,31 @@
-# Mini Project: Photo App with ReactJS and Redux
+# Mini Project: Photo App
+
+### Tool
+
+- ReactJS Hooks
+- bootstrap & reactstrap
+- Redux & Redux Toolkit
+- Formik
+- react-select : selected form
+- react-router-dom
+- Yup
+
+### Functions:
+
+- View list of photos
+- Add new photo
+- Edit photo
+- Remove photo
+
+### After this project
+
+i have basic understanding about
+
+- how to use Redux Toolkit, useDispatch, useSelector, and debug app with Redux Devtools
+- React & reactstrap to create UI
+- create form with Formik, using Formik to control input values.
+- create drop-down selected form with react-select
+- react-router-dom : “pages” handled by the router, and how to use useHistory, useParams
 
 ### Setup
 
@@ -12,11 +39,6 @@ and
 npm start
 ```
 
-### Tool
+### Screenshot
 
-- ReactJS Hooks
-- bootstrap & reactstrap : style
-- Redux & Redux Toolkit
-- Formik : Form
-- react-select : selected form
-- Yup : form validation
+<img src="https://i.imgur.com/0PqBeU3.png" />
