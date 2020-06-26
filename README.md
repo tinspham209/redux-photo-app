@@ -26,6 +26,7 @@ i have basic understanding about
 - create form with Formik, using Formik to control input values.
 - create drop-down selected form with react-select
 - react-router-dom : “pages” handled by the router, and how to use useHistory, useParams
+- form validation with Yup, and integrate Yup to Formik.
 
 ### Setup
 
