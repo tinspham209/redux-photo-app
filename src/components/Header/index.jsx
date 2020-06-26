@@ -1,7 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Col, Container, Row } from 'reactstrap';
-import './Header.scss';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Col, Container, Row } from "reactstrap";
+import "./Header.scss";
 
 Header.propTypes = {};
 
@@ -13,11 +13,11 @@ function Header() {
           <Col xs="auto">
             <a
               className="header__link header__title"
-              href="https://youtube.com/easyfrontend"
+              href="https://github.com/tinspham209/redux-photo-app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Easy Frontend
+              Redux Photo App
             </a>
           </Col>
 
