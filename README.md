@@ -81,13 +81,11 @@
 ### Bug:
 
 - Can't use `process.env.VARIABLE_NAME`
-
-Temporary Solution:
-
-- Update variable in `.env`
-  - `REACT_APP_API_URL` : replace axiosClient.baseURL in `src\api\axiosClient.js`
-  - `REACT_APP_FIREBASE_API` : replace config firebase `config.apiKey` in `src\App.js`
-  - `REACT_APP_FIREBASE_AUTH_DOMAIN` : replace config firebase `config.authDomain` in `src\App.js`
+- Solution:
+  - Update variable in `.env`
+    - `REACT_APP_API_URL` : replace axiosClient.baseURL in `src\api\axiosClient.js`
+    - `REACT_APP_FIREBASE_API` : replace config firebase `config.apiKey` in `src\App.js`
+    - `REACT_APP_FIREBASE_AUTH_DOMAIN` : replace config firebase `config.authDomain` in `src\App.js`
 
 ### Folder structure
 
@@ -139,13 +137,21 @@ Temporary Solution:
 
 ```
 
-### Setup
+### Set up
+
+Use the cmd line to clone repo to your computer
+
+```
+git clone [github_repo_url]
+```
+
+Use the cmd line to install dependencies.
 
 ```
 npm install
 ```
 
-and
+Run in cmd for start the dependencies server
 
 ```
 npm start
