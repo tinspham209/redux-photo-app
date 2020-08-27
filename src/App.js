@@ -4,6 +4,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
 import productApi from "api/productApi";
+import SignIn from "features/Auth/pages/SignIn";
 
 // Lazy load - Code splitting
 const Photo = React.lazy(() => import("./features/Photo"));
@@ -36,6 +37,8 @@ function App() {
 						<Redirect exact from="/" to="/photos" />
 
 						<Route path="/photos" component={Photo} />
+						<Route path="/sign-in" component={SignIn} />
+
 						<Route component={NotFound} />
 					</Switch>
 				</BrowserRouter>
