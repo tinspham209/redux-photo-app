@@ -22,6 +22,19 @@ const getFirebaseToken = async () => {
 			reject(null);
 		}, 10000);
 
+		let unsubscribe;
+		const timeout = setTimeout(() => {
+			reject();
+			if (typeof unsubscribe === "function") {
+				unsubscribe();
+			}
+		});
+
+		unsubscribe = firebase.auth.onAuthStateChanged(() => {
+			unsubscribe();
+			clearTimeout(timeout);
+		});
+
 		const unregisterAuthObserver = firebase
 			.auth()
 			.onAuthStateChanged(async (user) => {
