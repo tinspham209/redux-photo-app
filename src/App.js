@@ -35,6 +35,27 @@ function App() {
 
 		fetchProductList();
 	}, []);
+
+	// Handle firebase auth changed
+	useEffect(() => {
+		const unregisterAuthObserver = firebase
+			.auth()
+			.onAuthStateChanged(async (user) => {
+				if (!user) {
+					// user logs out, handle something
+					console.log("User is not logged in");
+					return;
+				}
+				console.log("Logged in user: ", user.displayName);
+				const token = await user.getIdToken();
+				console.log("Logged in user: ", token);
+			});
+
+		return () => {
+			unregisterAuthObserver();
+		};
+	}, []);
+
 	return (
 		<div className="photo-app">
 			<Suspense fallback={<div>Loading ...</div>}>
