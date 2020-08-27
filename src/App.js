@@ -1,13 +1,21 @@
-import React, { useState, useEffect, Suspense } from "react";
+import productApi from "api/productApi";
+import SignIn from "features/Auth/pages/SignIn";
+import firebase from "firebase";
+import React, { Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
-import productApi from "api/productApi";
-import SignIn from "features/Auth/pages/SignIn";
 
 // Lazy load - Code splitting
 const Photo = React.lazy(() => import("./features/Photo"));
+
+// Configure Firebase.
+const config = {
+	apiKey: "AIzaSyAv84XrHERAG7Oq6o3SHxWgk4g3WX1BaMg",
+	authDomain: "photo-app-aaa15.firebaseapp.com",
+};
+firebase.initializeApp(config);
 
 function App() {
 	const [productList, setProductList] = useState([]);
