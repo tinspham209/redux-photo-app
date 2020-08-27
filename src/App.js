@@ -6,6 +6,9 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
+import { useDispatch } from "react-redux";
+import { getMe } from "app/userSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 // Lazy load - Code splitting
 const Photo = React.lazy(() => import("./features/Photo"));
@@ -19,6 +22,7 @@ firebase.initializeApp(config);
 
 function App() {
 	const [productList, setProductList] = useState([]);
+	const dispatch = useDispatch();
 	useEffect(() => {
 		const fetchProductList = async () => {
 			try {
@@ -46,9 +50,15 @@ function App() {
 					console.log("User is not logged in");
 					return;
 				}
-				console.log("Logged in user: ", user.displayName);
-				const token = await user.getIdToken();
-				console.log("Logged in user: ", token);
+
+				// Get me when signed in
+				try {
+					const actionResult = await dispatch(getMe());
+					const currentUser = unwrapResult(actionResult);
+					console.log("Logged in user: ", currentUser);
+				} catch (error) {
+					console.log("Failed to login: ", error.message);
+				}
 			});
 
 		return () => {
